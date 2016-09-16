@@ -13,5 +13,5 @@ var findMedianSortedArrays = function(nums1, nums2) {
 
     var len1 = nums1.length;
 
-    return len1 % 2 === 0 ? (nums1[len1 / 2 - 1] + nums1[len1 / 2]) / 2 : nums1[len1 / 2 - 0.5];
+    return (len1 % 2 === 0) ? (nums1[len1 / 2 - 1] + nums1[len1 / 2]) / 2 : nums1[len1 / 2 - 0.5];
 };

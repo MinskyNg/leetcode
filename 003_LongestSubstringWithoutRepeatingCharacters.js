@@ -22,7 +22,7 @@ var lengthOfLongestSubstring = function(s) {
                 break;
             }
             if (i === j + 1) {
-                result = Math.max(result, i - start + 1);
+                result = (result > i - start + 1) ? result : i - start + 1;
             }
         }
     }
