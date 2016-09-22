@@ -16,7 +16,8 @@ var isMatch = function(s, p) {
     if ((s[0] === p[0] || p[0] === '.') && p[1] !== '*') {
         return isMatch(s.slice(1), p.slice(1));
     } else if ((s[0] === p[0] || p[0] === '.') && p[1] === '*') {
-        if (isMatch(s.slice(1), p)) {
+
+         if (isMatch(s.slice(1), p)) {
             return true;
         }
 
