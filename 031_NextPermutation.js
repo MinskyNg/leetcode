@@ -13,8 +13,8 @@ var nextPermutation = function(nums) {
         i--;
     }
 
-    var index = i - 1;
-    var j = len - 1;
+    var index = i - 1,
+        j = len - 1;
     while (i <= j) {
         tmp = nums[j];
         nums[j] = nums[i];

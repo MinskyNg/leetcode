@@ -7,10 +7,6 @@ var letterCombinations = function (digits) {
     return [];
   }
 
-  if (digits.length === 1) {
-    return digits[0];
-  }
-
   var result = []，
       map = {
         '1': '*',

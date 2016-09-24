@@ -22,9 +22,7 @@ var mergeKLists = function(lists) {
 
 var mergeTwoLists = function(l1, l2) {
     var tmp = new ListNode(0),
-        result = new ListNode(0);
-
-    result = tmp;
+        result = tmp;
 
 
     while (l1 && l2) {
