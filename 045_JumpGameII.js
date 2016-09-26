@@ -9,14 +9,14 @@ var jump = function(nums) {
         i = len - 1;
 
     while (i > 0) {
-        var maxStep = i - 1;
+        var maxReach = i - 1;
         for (var j = i - 1; j >=0; j--) {
             if (nums[j] >= i - j) {
-                maxStep = j;
+                maxReach = j;
             }
         }
         result++;
-        i = maxStep;
+        i = maxReach;
     }
 
     return result;
@@ -39,14 +39,15 @@ var jump = function(nums) {
 
     while (end < len) {
         result++;
-        var maxStep = 0;
-        for (var i = start; i <= end; i++) {
-            maxStep = Math.max(maxStep, i + nums[i]);
-            if (maxStep >= len - 1) {
+        var maxReach = 0;
+        for (var i = start; i <= end; i++)
+         {
+            maxReach = Math.max(maxReach, i + nums[i]);
+            if (maxReach >= len - 1) {
                 return result;
             }
         }
         start = end + 1;
-        end = maxStep;
+        end = maxReach;
     }
 };
