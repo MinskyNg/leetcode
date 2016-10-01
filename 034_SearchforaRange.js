@@ -9,7 +9,7 @@ var searchRange = function(nums, target) {
         end  = nums.length - 1;
 
     while (start < end) {
-        mid = start + ((end - start) >> 1);
+        var mid = start + ((end - start) >> 1);
         if (nums[mid] < target) {
             start = mid + 1;
         } else {
