@@ -16,7 +16,7 @@ var firstMissingPositive = function(nums) {
 
     for (i = 0; i < len; i++) {
         if (nums[i] !== i + 1) {
-            return i +  1;
+            return i + 1;
         }
     }
 

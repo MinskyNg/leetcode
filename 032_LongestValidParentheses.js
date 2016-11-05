@@ -1,4 +1,4 @@
-4/**
+/**
  * @param {string} s
  * @return {number}
  */
@@ -16,9 +16,9 @@ var longestValidParentheses = function(s) {
                 if (end < len - 1) {
                     maxLens[i] += maxLens[end + 1];
                 }
+                result = Math.max(result, maxLens[i]);
             }
         }
-        result = Math.max(result, maxLens[i]);
     }
 
     return result;

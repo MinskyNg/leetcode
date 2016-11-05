@@ -9,7 +9,7 @@ var romanToInt = function(s) {
 
     for (var i = 0; s !== ''; i++) {
         while (s.indexOf(romanArr[i]) === 0) {
-            romanArr[i].length === 1 ? s = s.slice(s.indexOf(romanArr[i]) + 1) : s = s.slice(s.indexOf(romanArr[i]) + 2);
+            s = romanArr[i].length === 1 ? s.slice(1) : s.slice(2);
             num += intArr[i];
         }
     }

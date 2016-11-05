@@ -18,12 +18,11 @@ var mergeTwoLists = function(l1, l2) {
         if (l1.val > l2.val) {
             tmp.next = l2;
             l2 = l2.next;
-            tmp = tmp.next;
         } else {
             tmp.next = l1
             l1 = l1.next;
-            tmp = tmp.next;
         }
+        tmp = tmp.next;
     }
 
     if (l1) {

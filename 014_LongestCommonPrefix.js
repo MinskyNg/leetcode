@@ -9,10 +9,12 @@ var longestCommonPrefix = function(strs) {
 
     for (var i = 0, len = strs.length - 1; i < len; i++) {
         var j = 0;
-        while (strs[i][j] !== undefined && strs[i+1][j] !== undefined && strs[i][j] === strs[i+1][j]) {
+        var prefix = strs[i];
+        var compare = strs[i+1];
+        while (prefix[j] !== undefined && compare[j] !== undefined && prefix[j] === compare[j]) {
             j++;
         }
-        strs[i+1] = strs[i+1].slice(0, j);
+        strs[i+1] = compare.slice(0, j);
     }
 
     return strs[len];

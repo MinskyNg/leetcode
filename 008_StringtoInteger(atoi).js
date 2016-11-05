@@ -3,7 +3,7 @@
  * @return {number}
  */
 var myAtoi = function(str) {
-    str = str.replace(/(^\s*)|(\s*$)/g, '');
+    str = str.replace(/(^\s*)/g, '');
     var len = str.length;
 
     if (len === 0) {

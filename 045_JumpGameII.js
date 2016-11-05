@@ -10,7 +10,7 @@ var jump = function(nums) {
 
     while (i > 0) {
         var maxReach = i - 1;
-        for (var j = i - 1; j >=0; j--) {
+        for (var j = i - 1; j >= 0; j--) {
             if (nums[j] >= i - j) {
                 maxReach = j;
             }

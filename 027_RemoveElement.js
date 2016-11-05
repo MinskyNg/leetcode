@@ -13,8 +13,7 @@ var removeElement = function(nums, val) {
     for (var i = 0, len = nums.length; i < len; i++) {
         if (nums[i] < val) {
             result++;
-        } else if (nums[i] === val) {
-        } else {
+        } else if (nums[i] > val) {
             nums[result] = nums[i];
             result++;
         }
