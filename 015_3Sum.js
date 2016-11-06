@@ -8,7 +8,7 @@ var threeSum = function(nums) {
         left,
         right;
 
-    nums.sort(function (a, b) {
+    nums.sort(function(a, b) {
         return a - b;
     });
 
