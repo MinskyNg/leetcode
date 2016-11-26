@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
+var postorderTraversal = function(root) {
     if (root === null) {
         return [];
     }
@@ -24,10 +24,10 @@ var inorderTraversal = function(root) {
             result.push(node.val);
         } else {
             node.visited = true;
+            stack.push(node);
             if (node.right) {
                 stack.push(node.right);
             }
-            stack.push(node);
             if (node.left) {
                 stack.push(node.left);
             }
