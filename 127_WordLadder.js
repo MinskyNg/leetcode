@@ -12,7 +12,7 @@ var ladderLength = function(beginWord, endWord, wordList) {
         letters = 'abcdefghijklmnopqrstuvwxyz';
     queue.push(beginWord);
 
-    while(queue.length > 0) {
+    while(queue.length) {
         for (var i = 0, lenq = queue.length; i < lenq; i++) {
             var word = queue.shift();
 
