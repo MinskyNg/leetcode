@@ -1,3 +1,4 @@
+// 中心检测法
 /**
  * @param {string} s
  * @return {string}
@@ -7,7 +8,8 @@ var longestPalindrome = function(s) {
         char,
         start,
         end,
-        subString = '';
+        maxStart = 0,
+        maxLen = 1;
 
     for (var pivot = 0, len = s.length; pivot < len; pivot++) {
         char = s[pivot];
@@ -34,8 +36,64 @@ var longestPalindrome = function(s) {
             end++;
         }
 
-        subString = subString.length > end - start - 1 ? subString : s.substring(start + 1, end);
+        if (end - start - 1 > maxLen) {
+            maxStart = start + 1;
+            maxLen = end - start - 1;
+        }
     }
 
-    return subString;
+    return s.substr(maxStart, maxLen);
+};
+
+
+// 动态规划
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    var tmp,
+        dis,
+        start = 0,
+        maxLen = 1,
+        dp = [];
+
+    for (var i = 0, len = s.length; i < len; i++) {
+        tmp = new Array(len);
+        tmp.fill(false);
+        tmp[i] = true;
+        dp[i] = tmp;
+    }
+
+    for (dis = 1; dis < len; dis++) {
+        for (i = 0; dis + i < len; i++) {
+            var j = dis + i;
+            if (s[i] === s[j]) {
+                dp[i][j] = dis !== 1 ? dp[i+1][j-1] : true;
+                if (dp[i][j] && dis + 1 > maxLen) {
+                    start = i;
+                    maxLen = dis + 1;
+                }
+            }
+        }
+    }
+
+    return s.substr(start, maxLen);
+};
+
+
+// Manacher算法
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    var t = '$#',
+        p = [];
+
+    for (var i = 0, len = s.length; i < len; i++) {
+        t += s[i] + '#';
+    }
+
+
 };

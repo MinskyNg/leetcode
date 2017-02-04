@@ -4,7 +4,6 @@
  */
 var threeSum = function(nums) {
     var result = [],
-        len = nums.length,
         left,
         right;
 
@@ -12,12 +11,9 @@ var threeSum = function(nums) {
         return a - b;
     });
 
-    for (var i = 0; i < len - 2; i++) {
-        if (nums[i] === nums[i - 1]) {
-            if (i === len - 3) {
-                break;
-            }
-            continue;
+    for (var i = 0, len = nums.length; i < len - 2 && nums[i] <= 0; i++) {
+        while (nums[i] === nums[i - 1]) {
+            i++;
         }
 
         left = i + 1;
@@ -31,12 +27,17 @@ var threeSum = function(nums) {
                 while (nums[right] === nums[right - 1]) {
                     right--;
                 }
-
                 left++;
                 right--;
             } else if(nums[i] + nums[left] + nums[right] < 0) {
+                while (nums[left] === nums[left + 1]) {
+                    left++;
+                }
                 left++;
             } else {
+                while (nums[right] === nums[right - 1]) {
+                    right--;
+                }
                 right--;
             }
         }

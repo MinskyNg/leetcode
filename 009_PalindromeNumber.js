@@ -3,5 +3,6 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    return x + '' === (x + '').split('').reverse().join('');
+    var str = x + ''
+    return str === str.split('').reverse().join('');
 };

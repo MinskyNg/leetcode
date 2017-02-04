@@ -3,35 +3,36 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-  if (digits.length === 0) {
-    return [];
-  }
-
-  var result = []，
-      map = {
-        '1': '*',
-        '2': 'abc',
-        '3': 'def',
-        '4': 'ghi',
-        '5': 'jkl',
-        '6': 'mno',
-        '7': 'pqrs',
-        '8': 'tuv',
-        '9': 'wxyz',
-    };
-
-  function dfs(str, depth) {
-    if (depth === digits.length) {
-      result.push(str);
-      return;
-    } else {
-      for (var i = 0, len = map[digits[depth]].length; i < len; i++) {
-        dfs(str + map[digits[depth]][i], depth + 1);
-      }
+    if (digits.length === 0) {
+        return [];
     }
-  }
 
-  dfs('', 0);
+    var result = [],
+        map = {
+            '1': '*',
+            '2': 'abc',
+            '3': 'def',
+            '4': 'ghi',
+            '5': 'jkl',
+            '6': 'mno',
+            '7': 'pqrs',
+            '8': 'tuv',
+            '9': 'wxyz',
+        },
+        dLen = digits.length;
 
-  return result;
+    function dfs(str, depth) {
+        if (depth === dLen) {
+            result.push(str);
+            return;
+        } else {
+            var letters = map[digits[depth]];
+            for (var i = 0, len = letters.length; i < len; i++) {
+                dfs(str + letters[i], depth + 1);
+            }
+        }
+    }
+
+    dfs('', 0);
+    return result;
 };

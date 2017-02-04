@@ -1,3 +1,4 @@
+// O(n^3)
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -5,7 +6,6 @@
  */
 var fourSum = function(nums, target) {
     var result = [],
-        len = nums.length,
         left,
         right;
 
@@ -13,7 +13,7 @@ var fourSum = function(nums, target) {
         return a - b;
     });
 
-    for (var i = 0; i < len - 3; i++) {
+    for (var i = 0, len = nums.length; i < len - 3; i++) {
         for (var j = i + 1; j < len - 2; j++) {
             left = j + 1;
             right = len - 1;
@@ -31,8 +31,14 @@ var fourSum = function(nums, target) {
                     right--;
 
                 } else if (nums[i] + nums[j] + nums[left] + nums[right] < target){
+                        while (nums[left] === nums[left + 1]) {
+                            left++;
+                        }
                         left++;
                     } else {
+                        while (nums[right] === nums[right - 1]) {
+                            right--;
+                        }
                         right--;
                     }
             }
@@ -48,3 +54,6 @@ var fourSum = function(nums, target) {
 
     return result;
 };
+
+
+// O(n^2*logn)
