@@ -20,7 +20,6 @@ var generateParenthesis = function(n) {
     }
 
     dfs('', n, n);
-
     return result;
 };
 

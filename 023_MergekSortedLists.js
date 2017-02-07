@@ -20,6 +20,7 @@ var mergeKLists = function(lists) {
     return mergeTwoLists(mergeKLists(lists.slice(0, len)), mergeKLists(lists.slice(len)));
 };
 
+
 var mergeTwoLists = function(l1, l2) {
     var tmp = new ListNode(0),
         result = tmp;

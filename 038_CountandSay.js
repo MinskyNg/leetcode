@@ -3,10 +3,9 @@
  * @return {string}
  */
 var countAndSay = function(n) {
-    var str = '1',
-        seq = 1;
+    var str = '1';
 
-    while (seq < n) {
+    for (var seq = 1; seq < n; seq++) {
         var tmp = [];
         for (var i = 0, len = str.length; i < len; i++) {
             var count = 1;
@@ -17,7 +16,6 @@ var countAndSay = function(n) {
             tmp.push(count + str[i]);
         }
         str = tmp.join('');
-        seq++;
     }
 
     return str;

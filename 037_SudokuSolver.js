@@ -3,6 +3,8 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 var solveSudoku = function(board) {
+    var nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
     backTrace(0, 0);
 
     function backTrace(row, col) {
@@ -16,8 +18,8 @@ var solveSudoku = function(board) {
         }
 
         if (board[row][col] === '.') {
-            for (var i = 1; i < 10; i++) {
-                var num = i + '';
+            for (var i = 0; i < 9; i++) {
+                var num = nums[i];
                 if (isValid(row, col, num)) {
                     board[row][col] = num;
                     if (backTrace(row, col + 1)) {
@@ -26,11 +28,10 @@ var solveSudoku = function(board) {
                     board[row][col] = '.';
                 }
             }
-        } else {
-            if (backTrace(row, col + 1)) {
-                return true
-            }
+        } else if (backTrace(row, col + 1)) {
+            return true
         }
+
         return false;
     }
 

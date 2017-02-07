@@ -19,7 +19,12 @@ var reverseKGroup = function(head, k) {
     while (head !== null) {
         tmpPoint = new ListNode(0);
         for (var i = 0; i < k; i++) {
-            if (head === null) {
+            if (head !== null) {
+                tmpNode = head.next;
+                head.next = tmpPoint.next;
+                tmpPoint.next = head;
+                head = tmpNode;
+            } else {
                 head = tmpPoint.next
                 while (head !== null) {
                     tmpNode = head.next;
@@ -28,11 +33,6 @@ var reverseKGroup = function(head, k) {
                     head = tmpNode;
                 }
                 return result.next;
-            } else {
-                tmpNode = head.next;
-                head.next = tmpPoint.next;
-                tmpPoint.next = head;
-                head = tmpNode;
             }
         }
         point.next = tmpPoint.next;

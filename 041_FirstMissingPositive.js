@@ -4,13 +4,11 @@
  */
 var firstMissingPositive = function(nums) {
     for (var i = 0, len = nums.length; i < len; i++) {
-        while (nums[i] > 0 && nums[i] < len && nums[i] !== i + 1) {
-            var tmp = nums[i];
-            if (nums[tmp - 1] === tmp) {
-                break;
-            }
+        var tmp = nums[i];
+        while (tmp > 0 && tmp < len && nums[tmp - 1] !== tmp) {
             nums[i] = nums[tmp - 1];
             nums[tmp - 1] = tmp;
+            tmp = nums[i];
         }
     }
 

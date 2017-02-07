@@ -19,11 +19,11 @@ var isValidSudoku = function(board) {
                 continue;
             } else {
                 var num = board[i][j];
-                if (rows[i][num] || cols[j][num] || subBoards[Math.floor(i / 3) * 3 + Math.floor(j / 3)][num]) {
+                var subNum = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+                if (rows[i][num] || cols[j][num] || subBoards[subNum][num]) {
                     return false;
-                } else {
-                    rows[i][num] = cols[j][num] = subBoards[Math.floor(i / 3) * 3 + Math.floor(j / 3)][num] = true;
                 }
+                rows[i][num] = cols[j][num] = subBoards[subNum][num] = true;
             }
         }
     }

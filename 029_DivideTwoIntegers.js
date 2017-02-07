@@ -16,21 +16,20 @@ var divide = function(dividend, divisor) {
         sign = 1;
 
     if (dividend < 0) {
+        dividend = -dividend;
         sign = -sign;
     }
 
     if (divisor < 0) {
+        divisor = -divisor;
         sign = -sign;
     }
-
-    dividend = dividend < 0 ? -dividend : dividend;
-    divisor = divisor < 0 ? -divisor : divisor;
 
     while (dividend >= divisor) {
         var tmp = divisor,
             exponent = 1;
         while ((tmp << 1) <= dividend) {
-            // Prevent overflow
+            // 防止溢出
             if ((tmp << 1) <= 0) {
                 break;
             }
@@ -40,7 +39,6 @@ var divide = function(dividend, divisor) {
         dividend -= tmp;
         result += exponent;
     }
-
 
     return sign * result;
 };

@@ -8,36 +8,34 @@ var combinationSum2 = function(candidates, target) {
         return a - b;
     });
 
-    var min = candidates[0];
-
-    function dfs(candidates, target) {
+    function dfs(cands, target) {
         var result = [],
-            len = candidates.length,
+            len = cands.length,
             i = len - 1;
 
 
-        while (candidates[i] > target - min) {
-            if (candidates[i] === target) {
-                result.push([candidates[i]]);
-                while (candidates[i - 1] === target) {
-                    i--;
-                }
-            }
+        while (cands[i] > target) {
             i--;
         }
-        candidates.splice(i + 1, len - 1 - i);
-
-        i = candidates.length - 1;
-        while (i >= 0) {
-            var subResult = combinationSum2(candidates.slice(0, i), target - candidates[i]);
-            len = subResult.length;
-            if (len !== 0) {
-                for (var j = 0; j < len; j++) {
-                    subResult[j].push(candidates[i]);
-                    result.push(subResult[j]);
-                }
+        if (cands[i] === target) {
+            result.push([cands[i]]);
+            while (cands[i - 1] === target) {
+                i--;
             }
-            while (candidates[i - 1] === candidates[i]) {
+        }
+        cands.splice(i + 1, len - 1 - i);
+
+
+        i = cands.length - 1;
+        while (i >= 0) {
+            var cand = cands[i];
+            var subResult = combinationSum2(cands.slice(0, i), target - cand);
+            len = subResult.length;
+            for (var j = 0; j < len; j++) {
+                subResult[j].push(cand);
+                result.push(subResult[j]);
+            }
+            while (cands[i - 1] === cands[i]) {
                 i--;
             }
             i--;

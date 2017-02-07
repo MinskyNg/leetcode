@@ -8,7 +8,7 @@ var findSubstring = function(s, words) {
         wordLen = words[0].length,
         map1 = {};
 
-    for (var i = 0, len = words.length; i < len; i++) {
+    for (var i = 0, wordCount = words.length; i < wordCount; i++) {
         map1[words[i]] = map1[words[i]] ? map1[words[i]] + 1 : 1;
     }
 
@@ -16,7 +16,7 @@ var findSubstring = function(s, words) {
         var map2 = {},
             count = 0,
             start = i;
-        for (var j = i, sLen = s.length; j <= sLen - wordLen; j += wordLen) {
+        for (var j = i, len = s.length - wordLen; j <= len; j += wordLen) {
             var str = s.substr(j, wordLen);
             if (map1[str]) {
                 map2[str] = map2[str] ? map2[str] + 1 : 1;
@@ -34,7 +34,7 @@ var findSubstring = function(s, words) {
                         }
                     }
                 }
-                if (count === len) {
+                if (count === wordCount) {
                     result.push(start);
                     tmp = s.substr(start, wordLen);
                     map2[tmp] -= 1;
