@@ -12,10 +12,6 @@ var solveNQueens = function(n) {
         solution[i] = initRow;
     }
 
-    backTrace(0, solution);
-
-    return result;
-
     function backTrace(row, sol) {
         if (row === n) {
             var soled = [];
@@ -53,4 +49,8 @@ var solveNQueens = function(n) {
         }
         return true;
     }
+
+    backTrace(0, solution);
+
+    return result;
 };

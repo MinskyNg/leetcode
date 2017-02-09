@@ -29,7 +29,7 @@ var combinationSum2 = function(candidates, target) {
         i = cands.length - 1;
         while (i >= 0) {
             var cand = cands[i];
-            var subResult = combinationSum2(cands.slice(0, i), target - cand);
+            var subResult = dfs(cands.slice(0, i), target - cand);
             len = subResult.length;
             for (var j = 0; j < len; j++) {
                 subResult[j].push(cand);

@@ -29,7 +29,7 @@ var isNumber = function(s) {
             }
             dot = true;
         } else if (char === 'e') {
-            if (exp || num === false) {
+            if (exp || !num) {
                 return false;
             }
             exp = true;

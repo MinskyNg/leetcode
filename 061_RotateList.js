@@ -17,8 +17,7 @@ var rotateRight = function(head, k) {
 
     var tmp1 = head,
         tmp2 = head,
-        len = 1
-        i = 0;
+        len = 1;
 
     while (tmp1.next) {
         tmp1 = tmp1.next;
@@ -30,7 +29,8 @@ var rotateRight = function(head, k) {
         return head;
     }
 
-    for (len = len - k - 1; i < len; i++) {
+    len = len - k - 1;
+    for (var i = 0; i < len; i++) {
         tmp2 = tmp2.next;
     }
 

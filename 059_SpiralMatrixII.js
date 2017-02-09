@@ -20,20 +20,20 @@ var generateMatrix = function(n) {
 
     while (xStart <= xEnd && yStart <= yEnd) {
         for (i = xStart; i <= xEnd; i++) {
-            matrix[yStart][i] = num
+            matrix[yStart][i] = num;
             num++;
         }
         for (i = yStart + 1; i <= yEnd; i++) {
             matrix[i][xEnd] = num;
             num++
         }
-        if (yStart != yEnd) {
+        if (yStart !== yEnd) {
             for (i = xEnd - 1; i >= xStart; i--) {
                 matrix[yEnd][i] = num;
                 num++;
             }
         }
-        if (xStart != xEnd) {
+        if (xStart !== xEnd) {
             for (i = yEnd - 1; i > yStart; i--) {
                 matrix[i][xStart] = num;
                 num++

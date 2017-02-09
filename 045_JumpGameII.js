@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-// GREEDY
+// 从后向前
 var jump = function(nums) {
     var result = 0,
         len = nums.length,
@@ -10,7 +10,7 @@ var jump = function(nums) {
 
     while (i > 0) {
         var maxReach = i - 1;
-        for (var j = i - 1; j >= 0; j--) {
+        for (var j = maxReach; j >= 0; j--) {
             if (nums[j] >= i - j) {
                 maxReach = j;
             }
@@ -27,11 +27,8 @@ var jump = function(nums) {
  * @param {number[]} nums
  * @return {number}
  */
+// 从前往后
 var jump = function(nums) {
-    if (nums.length === 1) {
-        return 0;
-    }
-
     var result = 0,
         start = 0,
         end = 0,
@@ -40,8 +37,7 @@ var jump = function(nums) {
     while (end < len) {
         result++;
         var maxReach = 0;
-        for (var i = start; i <= end; i++)
-         {
+        for (var i = start; i <= end; i++) {
             maxReach = Math.max(maxReach, i + nums[i]);
             if (maxReach >= len - 1) {
                 return result;

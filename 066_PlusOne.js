@@ -15,8 +15,8 @@ var plusOne = function(digits) {
     }
 
     if (digits[0] > 9) {
-        digits[0] = 0;
-        digits.unshift(1);
+        digits[0] = 1;
+        digits.push(0);
     }
 
     return digits;

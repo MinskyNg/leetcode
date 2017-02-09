@@ -6,6 +6,7 @@ var spiralOrder = function(matrix) {
     if (matrix.length === 0) {
         return [];
     }
+
     var result = [],
         xStart = 0,
         xEnd = matrix[0].length - 1,
@@ -19,12 +20,12 @@ var spiralOrder = function(matrix) {
         for (i = yStart + 1; i <= yEnd; i++) {
             result.push(matrix[i][xEnd]);
         }
-        if (yStart != yEnd) {
+        if (yStart !== yEnd) {
             for (i = xEnd - 1; i >= xStart; i--) {
                 result.push(matrix[yEnd][i]);
             }
         }
-        if (xStart != xEnd) {
+        if (xStart !== xEnd) {
             for (i = yEnd - 1; i > yStart; i--) {
                 result.push(matrix[i][xStart]);
             }

@@ -26,7 +26,7 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
         }
     }
 
-    for (i = 0; i < n; i++) {
+    for (i = 1; i < n; i++) {
         if (obstacleGrid[0][i] === 0) {
             s[0][i] = 1;
         } else {

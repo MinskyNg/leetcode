@@ -15,7 +15,7 @@ var groupAnagrams = function(strs) {
         }
     }
 
-    for ( i in hash) {
+    for (i in hash) {
         hash[i].sort();
         result.push(hash[i]);
     }

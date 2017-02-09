@@ -22,5 +22,4 @@ var myPow = function(x, n) {
     } else {
         return half * half * x;
     }
-
 };

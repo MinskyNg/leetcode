@@ -5,12 +5,7 @@
 var totalNQueens = function(n) {
     var result = 0,
         state = new Array(n);
-
     state.fill(-1);
-
-    backTrace(0, state);
-
-    return result;
 
     function backTrace(row, state) {
         if (row === n) {
@@ -28,10 +23,14 @@ var totalNQueens = function(n) {
 
     function isValid(state, row, col) {
         for (var i = row - 1; i >= 0; i--) {
-            if (state[i] === col || Math.abs(state[i] - col) === Math.abs(i - row)) {
+            if (state[i] === col || Math.abs(i - row) === Math.abs(state[i] - col)) {
                 return false;
             }
         }
         return true;
     }
+
+    backTrace(0, state);
+
+    return result;
 };

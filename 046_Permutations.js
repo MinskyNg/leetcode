@@ -3,20 +3,26 @@
  * @return {number[][]}
  */
 var permute = function(nums) {
-    var result = [];
+    var result = [],
+        len = nums.length,
+        visited = {};
 
-    function dfs(nums, permutation) {
-        if (nums.length === 0) {
-            result.push(permutation);
+    function dfs(depth, perm) {
+        if (depth === 0) {
+            result.push(perm);
             return;
         } else {
-            for (var i = 0, len = nums.length; i < len; i++) {
-                dfs(nums.slice(0, i).concat(nums.slice(i + 1)), permutation.concat(nums[i]));
+            for (var i = 0; i < len; i++) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    dfs(depth - 1, perm.concat(nums[i]));
+                    visited[i] = false;
+                }
             }
         }
     }
 
-    dfs(nums, []);
+    dfs(len, []);
 
     return result;
 };

@@ -11,7 +11,7 @@ var addBinary = function(a, b) {
     }
 
     var result = '',
-        carry = 0;
+        carry = 0,
         i = a.length - 1,
         j = b.length - 1;
 

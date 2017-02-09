@@ -12,7 +12,7 @@
 var merge = function(intervals) {
     intervals.sort(function (a, b) {
         return a.start - b.start;
-    })
+    });
 
     var i = 0;
     while (intervals[i + 1] !== undefined) {

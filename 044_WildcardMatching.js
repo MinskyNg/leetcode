@@ -7,30 +7,25 @@ var isMatch = function(s, p) {
     var slen = s.length,
         plen = p.length,
         i = 0,
-        j = 0;
+        j = 0,
+        starS,
+        star;
 
     while (i < slen) {
         if (s[i] === p[j] || p[j] === '?') {
             i++;
             j++;
-            continue;
-        }
-
-        if (p[j] === '*') {
-            var starS = i,
-                star = j;
+        } else if (p[j] === '*') {
+            starS = i;
+            star = j;
             j++;
-            continue;
-        }
-
-        if (i !== slen) {
+        } else if (starS !== undefined) {
             i = starS + 1;
             j = star + 1;
             starS++;
-            continue;
+        } else {
+            return false;
         }
-
-        return false;
     }
 
     while (p[j] === '*') {

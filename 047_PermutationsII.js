@@ -9,21 +9,21 @@ var permuteUnique = function(nums) {
         return a - b;
     })
 
-    function dfs(nums, permutation) {
-        if (nums.length === 0) {
-            result.push(permutation);
+    function dfs(nums, perm, len) {
+        if (len === 0) {
+            result.push(perm);
             return;
         } else {
-            for (var i = 0, len = nums.length; i < len; i++) {
+            for (var i = 0; i < len; i++) {
                 while (nums[i] === nums[i + 1]) {
                     i++;
                 }
-                dfs(nums.slice(0, i).concat(nums.slice(i + 1)), permutation.concat(nums[i]));
+                dfs(nums.slice(0, i).concat(nums.slice(i + 1)), perm.concat(nums[i]), len - 1);
             }
         }
     }
 
-    dfs(nums, []);
+    dfs(nums, [], nums.length);
 
     return result;
 };

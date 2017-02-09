@@ -13,7 +13,7 @@
 var insert = function(intervals, newInterval) {
     intervals.sort(function (a ,b) {
         return a.start - b.start;
-    })
+    });
 
     var i = 0;
     while (intervals[i] !== undefined) {
@@ -33,5 +33,5 @@ var insert = function(intervals, newInterval) {
         intervals[i] = newInterval;
     }
 
-    return intervals
+    return intervals;
 };

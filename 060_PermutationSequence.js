@@ -3,6 +3,7 @@
  * @param {number} k
  * @return {string}
  */
+// 康托展开
 var getPermutation = function(n, k) {
     var result = '',
         nums = [],

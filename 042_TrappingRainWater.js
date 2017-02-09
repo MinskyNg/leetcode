@@ -15,22 +15,17 @@ var trap = function(height) {
                 for (var j = start + 1; j < i; j++) {
                     result += startHeight - height[j];
                 }
-                start = i;
                 break;
-            } else {
-                maxHeight = Math.max(maxHeight, height[i]);
             }
+            maxHeight = Math.max(maxHeight, height[i]);
         }
-        if (i === len) {
-            if (maxHeight === startHeight) {
-                break;
-            }
+        if (i === len && maxHeight !== startHeight) {
             i = height.lastIndexOf(maxHeight);
             for (j = start + 1; j < i; j++) {
                 result += maxHeight - height[j];
             }
-            start = i;
         }
+        start = i;
     }
 
     return result;
