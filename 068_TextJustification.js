@@ -13,10 +13,10 @@ var fullJustify = function(words, maxWidth) {
 
     while (i < len) {
         if (count + line.length + words[i].length > maxWidth) {
-            var lienLen = line.length;
+            var lineLen = line.length;
             for (var j = 0, k = 0; j < maxWidth - count; j++, k++) {
-                var index = k % lienLen
-                if (index === lienLen - 1 && lienLen !== 1) {
+                var index = k % lineLen
+                if (index === lineLen - 1 && lineLen !== 1) {
                     j--;
                     continue;
                 }

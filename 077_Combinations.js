@@ -15,7 +15,7 @@ var combine = function(n, k) {
             return;
         }
         for (var i = start; i <= n; i++) {
-            dfs(arr.slice(0).concat(i), i+1, deep-1);
+            dfs(arr.slice().concat(i), i+1, deep-1);
         }
     }
 

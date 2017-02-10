@@ -7,16 +7,18 @@ var removeDuplicates = function(nums) {
         i = 0;
 
     while (nums[i] !== undefined) {
-        if (nums[i] === nums[i+1]) {
-            i++;
-            result = result + 2;
-            while (nums[i] === nums[i+1]) {
-                nums.splice(i, 1);
+        var tmp = nums[i];
+        if (tmp === nums[i+1]) {
+            nums[result++] = tmp;
+            nums[result++] = tmp;
+            i += 2;
+            while (tmp === nums[i]) {
+                i++;
             }
         } else {
-            result++;
+            nums[result++] = tmp;
+            i++;
         }
-        i++;
     }
 
     return result;

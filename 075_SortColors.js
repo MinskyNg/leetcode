@@ -26,3 +26,29 @@ var sortColors = function(nums) {
         nums[i++] = 2;
     }
 };
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var sortColors = function(nums) {
+    var tmp,
+        len = nums.length,
+        redEnd = 0,
+        blueStart = len - 1;
+
+    for (var i = 0; i < len; i++) {
+        if (nums[i] === 0) {
+            tmp = nums[redEnd];
+            nums[redEnd] = 0;
+            nums[i] = tmp;
+            redEnd++;
+        } else if (nums[i] === 2 && i < blueStart) {
+            tmp = nums[blueStart];
+            nums[blueStart] = 2;
+            nums[i] = tmp;
+            blueStart--;
+            i--;
+        }
+    }
+};

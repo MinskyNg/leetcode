@@ -3,6 +3,24 @@
  * @return {number[][]}
  */
 var subsets = function(nums) {
+    var result = [[]];
+
+    for (var i = 0, len = nums.length; i < len; i++) {
+        var num = nums[i];
+        for (var j = 0, n = result.length; j < n; j++) {
+            result.push(result[j].slice().concat(num));
+        }
+    }
+
+    return result;
+};
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var subsets = function(nums) {
     var result = [[]],
         len = nums.length,
         path = [];
